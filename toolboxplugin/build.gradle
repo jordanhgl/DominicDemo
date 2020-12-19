@@ -1,0 +1,18 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+apply from: './upload.gradle'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url uri("../../repo")
+    }
+}
+
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}

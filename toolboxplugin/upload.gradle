@@ -1,0 +1,30 @@
+apply plugin: 'maven'
+
+
+
+//def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+
+def localRepo = '../repo'
+
+uploadArchives {
+    doFirst {
+        System.err.println("-----begin to upload $project.GROUP_ID:$project.ARTIFACT_ID:$project.VERSION")
+    }
+    doLast {
+        System.err.println("-----Finish to upload $project.GROUP_ID:$project.ARTIFACT_ID:$project.VERSION")
+    }
+    repositories {
+        mavenDeployer {
+            pom.groupId = project.GROUP_ID
+            pom.artifactId = project.ARTIFACT_ID
+            pom.version = project.VERSION
+
+            repository(url: uri("$localRepo")) {
+                authentication(userName: project.USERNAME, password: project.PASSWORD)
+            }
+            snapshotRepository(url: uri("$localRepo")) {
+                authentication(userName: project.USERNAME, password: project.PASSWORD)
+            }
+        }
+    }
+}
