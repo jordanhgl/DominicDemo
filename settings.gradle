@@ -1,5 +1,5 @@
-include ':toolboxplugin'
-println 'output print in setting.gradle in initialation phase'
-include ':firstlib'
 include ':app'
-rootProject.name = "DemoCenter"
+include ':toolboxplugin'
+include ':firstlib'
+
+rootProject.name = "DemoCenterCp"

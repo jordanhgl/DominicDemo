@@ -1,18 +1,20 @@
 apply plugin: 'groovy'
-apply plugin: 'maven'
+apply plugin: 'java'
 
-apply from: './upload.gradle'
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven {
-        url uri("../../repo")
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src/main/groovy']
+        }
     }
 }
-
 
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.5.0'
 }
+
+apply from: './upload.gradle'

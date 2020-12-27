@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
-//apply plugin: 'dominic-toolbox'
+apply plugin: 'dominic-plugins'
 
-
-//apply plugin: 'dominic-toolbox'
-//simple_config {
-//    name "hellokitty"
-//    paramsFile file('./conf.txt')
-//}
+project.task("puginshow") {
+    doFirst {
+        project.getPlugins().toList().each {
+            println("found plugin id:" + it)
+        }
+    }
+}
 
 android {
 
@@ -17,6 +18,7 @@ android {
     defaultConfig {
         applicationId "com.dominic.demos"
         minSdkVersion 16
+        compileSdkVersion 29
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

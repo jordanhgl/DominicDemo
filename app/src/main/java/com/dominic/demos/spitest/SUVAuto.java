@@ -1,6 +1,6 @@
 package com.dominic.demos.spitest;
 
-@AutoService(ICar.class)
+//@AutoService(ICar.class)
 public class SUVAuto implements ICar {
     @Override
     public String getName() {

@@ -4,13 +4,5 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dominic.toolbox</groupId>
   <artifactId>dominic_plugin_aid</artifactId>
-  <version>0.0.2</version>
-  <dependencies>
-    <dependency>
-      <groupId>com.android.tools.build</groupId>
-      <artifactId>gradle</artifactId>
-      <version>3.5.0</version>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
+  <version>0.0.1</version>
 </project>
