@@ -1,6 +1,6 @@
 package com.dominic.demos.regex;
 
-import com.dominic.demos.util.Log;
+import com.dominic.demos.util.LogUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,9 +20,9 @@ public class RegexDemo {
             String group1 = mm.group(1);
             String group2 = mm.group(2);
             String group3 = mm.group(3);
-            Log.log(group1);
-            Log.log(group2);
-            Log.log(group3);
+            LogUtil.log(group1);
+            LogUtil.log(group2);
+            LogUtil.log(group3);
         }
     }
 

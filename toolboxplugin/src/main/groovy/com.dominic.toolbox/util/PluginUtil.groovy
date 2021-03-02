@@ -7,7 +7,7 @@ class PluginUtil {
 
 
     static boolean isAppModule(Project project) {
-        if (project.plugins.findPlugin(AppPlugin.class)) {
+        if (project.plugins.hasPlugin(AppPlugin.class)) {
             return true
         }
         return false

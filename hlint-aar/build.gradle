@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    lintPublish project(':hlint-checks')
+}
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = GROUP_ID
+            pom.artifactId = ARTIFACT_ID
+            pom.version = VERSION_1_8
+            repository(url: uri('../local_repo')) {
+                authentication(userName: '', password: '')
+            }
+            snapshotRepository(url: uri('../local_repo')) {
+                authentication(userName: '', password: '')
+            }
+        }
+    }
+}

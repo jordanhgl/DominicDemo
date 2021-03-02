@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'dominic-plugins'
+//apply plugin: 'dominic-plugins'
+//apply plugin: 'dominic_resprocess'
+//
+//tb_resprocess {
+//    enable = true
+//    layConf {
+//        enabled = true
+//    }
+//}
 
 project.task("puginshow") {
     doFirst {
@@ -40,6 +48,7 @@ android {
 
 dependencies {
     api project(":firstlib")
+    api project(":demo-annotations")
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -49,5 +58,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    //implementation 'com.squareup.okio:okio:3.0.0-SNAPSHOT'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
     //implementation "com.dominic.toolbox:smallbox:0.0.5"
+
+    //implementation 'com.htools.lint:lint_aar:0.0.1'
 }

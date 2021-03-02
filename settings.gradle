@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':demo-annotations', ':hlint-checks', ':hlint-aar'
 include ':toolboxplugin'
 include ':firstlib'
 

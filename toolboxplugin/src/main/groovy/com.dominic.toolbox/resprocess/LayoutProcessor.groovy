@@ -16,7 +16,7 @@ class LayoutProcessor extends AbsProcessor {
 
     @Override
     boolean checkEnable() {
-        if (projConf.enable && projConf?.layConf.enable) {
+        if (projConf?.enable && projConf?.layConf?.enabled) {
             return true
         }
         return false

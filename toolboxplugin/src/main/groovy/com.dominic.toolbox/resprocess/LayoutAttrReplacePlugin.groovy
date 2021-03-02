@@ -1,7 +1,10 @@
 package com.dominic.toolbox.resprocess
 
+import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.LibraryPlugin
+import com.dominic.toolbox.resprocess.transf.FirstTransform
+import com.dominic.toolbox.util.PluginUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -19,6 +22,10 @@ class LayoutAttrReplacePlugin implements Plugin<Project> {
 
         project.extensions.create("tb_resprocess", ProjectExtentions)
 
+        if (PluginUtil.isAppModule(project)) {
+            project.extensions.findByType(AppExtension.class).registerTransform(new FirstTransform())
+        }
+
         //每个project在配置完都会回调该方法
         project.afterEvaluate {
             def projCfg = project.extensions.findByType(ProjectExtentions.class)
@@ -26,8 +33,8 @@ class LayoutAttrReplacePlugin implements Plugin<Project> {
             //collect all processor into a list
             List<AbsProcessor> allProcessors = Arrays.asList(new LayoutProcessor())
                     .stream()
-                    .filter{it.checkEnable(projCfg)} //if enable in config, processor will be kept
-                    .tolist(Collectors.toList())
+                    .filter{it.checkEnable()} //if enable in config, processor will be kept
+                    .collect(Collectors.toList())
 
             def isApp = project.plugins.hasPlugin(AppPlugin.class)
             if (isApp) {

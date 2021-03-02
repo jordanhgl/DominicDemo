@@ -1,6 +1,6 @@
 package com.dominic.demos.util;
 
-public class Log {
+public class LogUtil {
 
     public static void log(Object obj) {
         System.out.println(obj);

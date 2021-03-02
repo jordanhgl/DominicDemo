@@ -1,11 +1,15 @@
 package com.dominic.toolbox.resprocess
 
+import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.api.BaseVariant
+import org.gradle.api.Action
+
 class ProjectExtentions {
 
     boolean enable                  //top-level toggle
     LayoutAttrExtentions layConf
 
-    ProjectExtensions() {
+    ProjectExtentions() {
         this.layConf = new LayoutAttrExtentions()
     }
 
@@ -17,7 +21,8 @@ class ProjectExtentions {
         this.layConf = layConf
     }
 
-
-
+    void layConf(Action<? super LayoutAttrExtentions> action) {
+        action.execute(layConf)
+    }
 
 }

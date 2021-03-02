@@ -1,7 +1,6 @@
 package com.dominic.demos;
 
-import com.dominic.demos.regex.RegexDemo;
-import com.dominic.demos.util.Log;
+import com.dominic.demos.util.LogUtil;
 
 import org.junit.Test;
 
@@ -38,9 +37,9 @@ public class ExampleUnitTest {
             String group1 = mm.group(1);
             String group2 = mm.group(2);
             String group3 = mm.group(3);
-            Log.log(group1);
-            Log.log(group2);
-            Log.log(group3);
+            LogUtil.log(group1);
+            LogUtil.log(group2);
+            LogUtil.log(group3);
         }
     }
 }

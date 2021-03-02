@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+
+jar {
+    manifest {
+        attributes('Lint-Registry': 'com.example.hlint_checks.registry.CustomIssueRegistry')
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compileOnly 'com.android.tools.lint:lint-api:26.1.2'
+    compileOnly 'com.android.tools.lint:lint-checks:26.1.2'
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
